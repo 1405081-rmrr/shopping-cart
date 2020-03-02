@@ -40,26 +40,29 @@
                <!--phone area ends here-->
 
                <!--case area starts here-->
-               <div class="cart-item">
-                  <div class="row">
-                     <div class="col-md-7 center-item mx-auto">
-                        <img src="images/product-2.png" alt="">
-                        <h5>iPhone 11 Silicone Case - Black</h5>
-                     </div>
-                     <div class="col-md-5 center-item">
-                        <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
-
+               <div id="case-area">
+                  <div class="cart-item">
+                     <div class="row">
+                        <div class="col-md-7 center-item mx-auto">
+                           <img src="images/product-2.png" alt="">
+                           <h5>iPhone 11 Silicone Case - Black</h5>
                         </div>
-                        <h5>$59</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+
+                        <div class="col-md-5 center-item">
+                           <div class="input-group number-spinner">
+                              <button class="btn btn-default"><i id="case-minus-btn" class="fas fa-minus"></i></button>
+                              <input type="text" class="form-control text-center" value="1" id="addRemoveCase">
+                              <button class="btn btn-default"><i id="case-plus-btn" class="fas fa-plus"></i></button>
+                           </div>
+                           <h5>$ <span id="case-price">59</span></h5>
+                           <img id="remove-case" src="images/remove.png" alt="" class="remove-item">
+                        </div>
                      </div>
                   </div>
                </div>
                <!--case area ends here-->
 
+               <!--total calculation starts here-->
                <div class="cart-item">
                   <div class="row">
 
@@ -70,12 +73,14 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
-                        <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="subTotal">1,278</span></h5>
+                        <h5>$ <span id="tax">0</span></h5>
+                        <h5>$ <span id="total">1,278</span></h5>
                      </div>
                   </div>
                </div>
+               <!--total calculation ends here-->
+
                <div class="col-md-12 pt-4 pb-4">
                   <button type="button" class="btn btn-success check-out">Check Out</button>
                </div>
@@ -91,10 +96,10 @@
       const phonePlusBtn = document.getElementById("phone-plus-btn");
       phonePlusBtn.addEventListener("click", function(){
          const addPhone = document.getElementById("addRemovePhone").value;  // get the value
-         const addPhoneNumber = parseFloat(addPhone) + 1;  // adding 1 to the current value after click plus 
+         const addPhoneNumber = parseFloat(addPhone) + 1;  // adding 1 to the current value after clicking plus 
          document.getElementById("addRemovePhone").value = addPhoneNumber;  // showing the updated value after clicking
 
-         const currentPhonePrice = 1219 * addPhoneNumber;  // update phone price based on phone numbers
+         const currentPhonePrice = 1219 * addPhoneNumber;  // update phone price based on adding phone numbers
          document.getElementById("phone-price").innerText = currentPhonePrice;  // showing the updated price
       })
 
@@ -105,15 +110,44 @@
          const removePhoneNumber = parseFloat(removePhone) - 1;  // removing 1 from the current value after clicking minus 
          document.getElementById("addRemovePhone").value = removePhoneNumber;  // showing the updated value after clicking 
 
-         const currentPhonePrice = 1219 * removePhoneNumber;  // update phone price based on phone numbers
+         const currentPhonePrice = 1219 * removePhoneNumber;  // update phone price based on removing phone numbers
          document.getElementById("phone-price").innerText = currentPhonePrice;  // showing the updated price
       })
 
       // phone remove button event handler
-      const removePhone = document.getElementById("remove-phone");
-      removePhone.addEventListener("click", function(){
-         const phoneArea = document.getElementById("phone-area");
-         phoneArea.style.display = "none";
+      const removePhone = document.getElementById("remove-phone");  // get the remove phone area
+      removePhone.addEventListener("click", function(){  // catch the click functionality
+         const phoneArea = document.getElementById("phone-area");  // defining phone area
+         phoneArea.style.display = "none";  // remove the display from phone area
+      })
+
+      // case plus button event handler
+      const casePlusBtn = document.getElementById("case-plus-btn");
+      casePlusBtn.addEventListener("click", function(){
+         const addCase = document.getElementById("addRemoveCase").value;  // get the value
+         const addCaseNumber = parseFloat(addCase) + 1;  // adding 1 to the current value after clicking plus
+         document.getElementById("addRemoveCase").value = addCaseNumber;  // showing the updated value after clicking
+
+         const currentCasePrice = 59 * addCaseNumber;  // update case price based on adding case numbers
+         document.getElementById("case-price").innerText = currentCasePrice;  // showing the updated price
+      })
+
+      // case minus button event handler
+      const caseMinusBtn = document.getElementById("case-minus-btn");
+      caseMinusBtn.addEventListener("click", function(){
+         const removeCase = document.getElementById("addRemoveCase").value;  // get the value
+         const removeCaseNumber = parseFloat(removeCase) - 1;  // removing 1 from the current value after clicking minus
+         document.getElementById("addRemoveCase").value = removeCaseNumber;  // showing the updated value after clicking
+
+         const currentCasePrice = 59 * removeCaseNumber;  // update case price based on  removing case number
+         document.getElementById("case-price").innerText = currentCasePrice;  // showing the updated price
+      })
+
+      //case remove button event handler
+      const removeCase = document.getElementById("remove-case");  // get the remove case area
+      removeCase.addEventListener("click", function(){  // catch the click functionality
+         const caseArea = document.getElementById("case-area");  // defining case area
+         caseArea.style.display = "none";  // remove the display from the case area
       })
    </script>
 </body>
