@@ -120,7 +120,7 @@
 
          // const total = subTotal + tax;  // total calculation
          // document.getElementById("total-calc").innerText = total;  // showing the total amount
-         calculation("subTotal-calc", 1219);  // function call
+         calculation("subTotal-calc", "subTotal-calc", 1219);  // function call
       })
 
       // phone minus button event handler
@@ -142,7 +142,7 @@
 
          // const total = subTotal + tax;  // total calculation
          // document.getElementById("total-calc").innerText = total;  // showing the total amount
-         calculation("subTotal-calc", - 1219);  // function call
+         calculation("subTotal-calc", "subTotal-calc", - 1219);  // function call
       })
 
       // phone remove button event handler
@@ -151,15 +151,16 @@
          const phoneArea = document.getElementById("phone-area");  // defining phone area
          phoneArea.style.display = "none";  // remove the display from phone area
 
-         const currentSubTotal = document.getElementById("case-price").innerText;
-         const subTotal = parseFloat(currentSubTotal);  // subtotal calculation
-         document.getElementById("subTotal-calc").innerText = subTotal;  // showing the subtotal amount
+         // const currentSubTotal = document.getElementById("case-price").innerText;
+         // const subTotal = parseFloat(currentSubTotal);  // subtotal calculation
+         // document.getElementById("subTotal-calc").innerText = subTotal;  // showing the subtotal amount
 
-         const tax = 0.075 * subTotal;  // tax calculation
-         document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
+         // const tax = 0.075 * subTotal;  // tax calculation
+         // document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
 
-         const total = subTotal + tax;  // total calculation
-         document.getElementById("total-calc").innerText = total;  // showing the total amount
+         // const total = subTotal + tax;  // total calculation
+         // document.getElementById("total-calc").innerText = total;  // showing the total amount
+         calculation("case-price", "subTotal-calc", 0);  // function call
       })
 
       // case plus button event handler
@@ -181,7 +182,7 @@
 
          // const total = subTotal + tax;  // total calculation
          // document.getElementById("total-calc").innerText = total;  // showing the total amount
-         calculation("subTotal-calc", 59);  // function call
+         calculation("subTotal-calc", "subTotal-calc", 59);  // function call
       })
 
       // case minus button event handler
@@ -203,7 +204,7 @@
 
          // const total = subTotal + tax;  // total calculation
          // document.getElementById("total-calc").innerText = total;  // showing the total amount
-         calculation("subTotal-calc", - 59);  // function call
+         calculation("subTotal-calc", "subTotal-calc", - 59);  // function call
       })
 
       //case remove button event handler
@@ -212,23 +213,24 @@
          const caseArea = document.getElementById("case-area");  // defining case area
          caseArea.style.display = "none";  // remove the display from the case area
 
-         const currentSubTotal = document.getElementById("phone-price").innerText;
-         const subTotal = parseFloat(currentSubTotal);  // subtotal calculation
-         document.getElementById("subTotal-calc").innerText = subTotal;  // showing the subtotal amount
+         // const currentSubTotal = document.getElementById("phone-price").innerText;
+         // const subTotal = parseFloat(currentSubTotal);  // subtotal calculation
+         // document.getElementById("subTotal-calc").innerText = subTotal;  // showing the subtotal amount
 
-         const tax = 0.075 * subTotal;  // tax calculation
-         document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
+         // const tax = 0.075 * subTotal;  // tax calculation
+         // document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
 
-         const total = subTotal + tax;  // total calculation
-         document.getElementById("total-calc").innerText = total;  // showing the total amount
+         // const total = subTotal + tax;  // total calculation
+         // document.getElementById("total-calc").innerText = total;  // showing the total amount
+         calculation("phone-price", "subTotal-calc", 0);  // function call
       })
 
       //calculation function
-      function calculation(id, number)
+      function calculation(id1, id2, number)
       {
-         const currentSubTotal = document.getElementById(id).innerText;
+         const currentSubTotal = document.getElementById(id1).innerText;
          const subTotal = parseFloat(currentSubTotal) + number;  // subtotal calculation
-         document.getElementById(id).innerText = subTotal;  // showing the subtotal amount
+         document.getElementById(id2).innerText = subTotal;  // showing the subtotal amount
 
          const tax = 0.075 * subTotal;  // tax calculation
          document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
