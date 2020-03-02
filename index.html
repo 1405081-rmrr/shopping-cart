@@ -16,25 +16,30 @@
       <div class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
-               <div class="cart-item">
-                  <div class="row">
-                     <div class="col-md-7 center-item">
-                        <img src="images/product-1.png" alt="">
-                        <h5>iPhone 11 128GB Black</h5>
-                     </div>
-
-                     <div class="col-md-5 center-item">
-                        <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i id="phone-minus-btn" class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1" id="addRemovePhone">
-                           <button class="btn btn-default"><i id="phone-plus-btn" class="fas fa-plus"></i></button>
+               <!--phone area starts here-->
+               <div id="phone-area">
+                  <div class="cart-item">
+                     <div class="row">
+                        <div class="col-md-7 center-item">
+                           <img src="images/product-1.png" alt="">
+                           <h5>iPhone 11 128GB Black</h5>
                         </div>
-                        <h5>$ <span id="phone-price">1219</span></h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+   
+                        <div class="col-md-5 center-item">
+                           <div class="input-group number-spinner">
+                              <button class="btn btn-default"><i id="phone-minus-btn" class="fas fa-minus"></i></button>
+                              <input type="text" class="form-control text-center" value="1" id="addRemovePhone">
+                              <button class="btn btn-default"><i id="phone-plus-btn" class="fas fa-plus"></i></button>
+                           </div>
+                           <h5>$ <span id="phone-price">1219</span></h5>
+                           <img id="remove-phone" src="images/remove.png" alt="" class="remove-item">
+                        </div>
                      </div>
                   </div>
                </div>
+               <!--phone area ends here-->
 
+               <!--case area starts here-->
                <div class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
@@ -53,6 +58,7 @@
                      </div>
                   </div>
                </div>
+               <!--case area ends here-->
 
                <div class="cart-item">
                   <div class="row">
@@ -101,6 +107,13 @@
 
          const currentPhonePrice = 1219 * removePhoneNumber;  // update phone price based on phone numbers
          document.getElementById("phone-price").innerText = currentPhonePrice;  // showing the updated price
+      })
+
+      // phone remove button event handler
+      const removePhone = document.getElementById("remove-phone");
+      removePhone.addEventListener("click", function(){
+         const phoneArea = document.getElementById("phone-area");
+         phoneArea.style.display = "none";
       })
    </script>
 </body>
