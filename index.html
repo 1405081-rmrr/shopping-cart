@@ -73,9 +73,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$ <span id="subTotal">1,278</span></h5>
-                        <h5>$ <span id="tax">0</span></h5>
-                        <h5>$ <span id="total">1,278</span></h5>
+                        <h5>$ <span id="subTotal-calc">1278</span></h5>
+                        <h5>$ <span id="tax-calc">95.85</span></h5>
+                        <h5>$ <span id="total-calc">1373.85</span></h5>
                      </div>
                   </div>
                </div>
@@ -101,6 +101,16 @@
 
          const currentPhonePrice = 1219 * addPhoneNumber;  // update phone price based on adding phone numbers
          document.getElementById("phone-price").innerText = currentPhonePrice;  // showing the updated price
+
+         const currentSubTotal = document.getElementById("subTotal-calc").innerText;
+         const subTotal = parseFloat(currentSubTotal) + 1219;  // subtotal calculation
+         document.getElementById("subTotal-calc").innerText = subTotal;  // showing the subtotal amount
+
+         const tax = 0.075 * subTotal;  // tax calculation
+         document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
+
+         const total = subTotal + tax;  // total calculation
+         document.getElementById("total-calc").innerText = total;  // showing the total amount
       })
 
       // phone minus button event handler
@@ -112,6 +122,16 @@
 
          const currentPhonePrice = 1219 * removePhoneNumber;  // update phone price based on removing phone numbers
          document.getElementById("phone-price").innerText = currentPhonePrice;  // showing the updated price
+
+         const currentSubTotal = document.getElementById("subTotal-calc").innerText;
+         const subTotal = parseFloat(currentSubTotal) - 1219;  // subtotal calculation
+         document.getElementById("subTotal-calc").innerText = subTotal;  // showing the subtotal amount
+
+         const tax = 0.075 * subTotal;  // tax calculation
+         document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
+
+         const total = subTotal + tax;  // total calculation
+         document.getElementById("total-calc").innerText = total;  // showing the total amount
       })
 
       // phone remove button event handler
@@ -119,6 +139,16 @@
       removePhone.addEventListener("click", function(){  // catch the click functionality
          const phoneArea = document.getElementById("phone-area");  // defining phone area
          phoneArea.style.display = "none";  // remove the display from phone area
+
+         const currentSubTotal = document.getElementById("case-price").innerText;
+         const subTotal = parseFloat(currentSubTotal);  // subtotal calculation
+         document.getElementById("subTotal-calc").innerText = subTotal;  // showing the subtotal amount
+
+         const tax = 0.075 * subTotal;  // tax calculation
+         document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
+
+         const total = subTotal + tax;  // total calculation
+         document.getElementById("total-calc").innerText = total;  // showing the total amount
       })
 
       // case plus button event handler
@@ -130,6 +160,16 @@
 
          const currentCasePrice = 59 * addCaseNumber;  // update case price based on adding case numbers
          document.getElementById("case-price").innerText = currentCasePrice;  // showing the updated price
+
+         const currentSubTotal = document.getElementById("subTotal-calc").innerText;
+         const subTotal = parseFloat(currentSubTotal) + 59;  // subtotal calculation
+         document.getElementById("subTotal-calc").innerText = subTotal;  // showing the subtotal amount
+
+         const tax = 0.075 * subTotal;  // tax calculation
+         document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
+
+         const total = subTotal + tax;  // total calculation
+         document.getElementById("total-calc").innerText = total;  // showing the total amount
       })
 
       // case minus button event handler
@@ -141,6 +181,16 @@
 
          const currentCasePrice = 59 * removeCaseNumber;  // update case price based on  removing case number
          document.getElementById("case-price").innerText = currentCasePrice;  // showing the updated price
+
+         const currentSubTotal = document.getElementById("subTotal-calc").innerText;
+         const subTotal = parseFloat(currentSubTotal) - 59;  // subtotal calculation
+         document.getElementById("subTotal-calc").innerText = subTotal;  // showing the subtotal amount
+
+         const tax = 0.075 * subTotal;  // tax calculation
+         document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
+
+         const total = subTotal + tax;  // total calculation
+         document.getElementById("total-calc").innerText = total;  // showing the total amount
       })
 
       //case remove button event handler
@@ -148,6 +198,16 @@
       removeCase.addEventListener("click", function(){  // catch the click functionality
          const caseArea = document.getElementById("case-area");  // defining case area
          caseArea.style.display = "none";  // remove the display from the case area
+
+         const currentSubTotal = document.getElementById("phone-price").innerText;
+         const subTotal = parseFloat(currentSubTotal);  // subtotal calculation
+         document.getElementById("subTotal-calc").innerText = subTotal;  // showing the subtotal amount
+
+         const tax = 0.075 * subTotal;  // tax calculation
+         document.getElementById("tax-calc").innerText = tax;  // showing the tax amount
+
+         const total = subTotal + tax;  // total calculation
+         document.getElementById("total-calc").innerText = total;  // showing the total amount
       })
    </script>
 </body>
