@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button class="btn btn-default"><i id="phone-minus-btn" class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" value="1" id="addRemovePhone">
+                           <button class="btn btn-default"><i id="phone-plus-btn" class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="phone-price">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -77,6 +77,32 @@
          </div>
       </div>
    </section>
+
+
+   <!--javascript-->
+   <script>
+      // phone plus button event handler
+      const phonePlusBtn = document.getElementById("phone-plus-btn");
+      phonePlusBtn.addEventListener("click", function(){
+         const addPhone = document.getElementById("addRemovePhone").value;  // get the value
+         const addPhoneNumber = parseFloat(addPhone) + 1;  // adding 1 to the current value after click plus 
+         document.getElementById("addRemovePhone").value = addPhoneNumber;  // showing the updated value after clicking
+
+         const currentPhonePrice = 1219 * addPhoneNumber;  // update phone price based on phone numbers
+         document.getElementById("phone-price").innerText = currentPhonePrice;  // showing the updated price
+      })
+
+      // phone minus button event handler
+      const phoneMinusBtn = document.getElementById("phone-minus-btn");
+      phoneMinusBtn.addEventListener("click", function(){
+         const removePhone = document.getElementById("addRemovePhone").value;  // get the value
+         const removePhoneNumber = parseFloat(removePhone) - 1;  // removing 1 from the current value after clicking minus 
+         document.getElementById("addRemovePhone").value = removePhoneNumber;  // showing the updated value after clicking 
+
+         const currentPhonePrice = 1219 * removePhoneNumber;  // update phone price based on phone numbers
+         document.getElementById("phone-price").innerText = currentPhonePrice;  // showing the updated price
+      })
+   </script>
 </body>
 
 </html>
